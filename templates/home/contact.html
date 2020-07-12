@@ -2,5 +2,29 @@
 {% block title %} contact {% endblock title %}   
 
 {% block body %}
-<p> hello from contact </p>
+<div class="container">
+<form method="post" action="/contact">
+<h1> Contact Coder</h1>
+  <div class="form-group my-3">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name">
+  </div>
+  <div class="form-group">
+    <label for="email1">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone no.</label>
+    <input type="phone" class="form-control" id="phone">
+  </div>
+ <div class="form-group">
+    <label for="content">How may we help you:</label>
+    <textarea name="content" type="text" cols="30" rows="5" class="form-control" id="content"></textarea>
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
 {% endblock body %}
