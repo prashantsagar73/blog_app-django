@@ -24,5 +24,8 @@ def contact(request):
     return render(request,'home/contact.html')
 
 def about(request):
+    # return HttpResponse('this is about')
+
     return render(request,'home/about.html')
+
  
