@@ -3,20 +3,21 @@
 
 {% block body %}
 <div class="container">
-<form method="post" action="/contact">
 <h1> Contact Coder</h1>
+<form method="post" action="/contact">
+  {% csrf_token %}
   <div class="form-group my-3">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" aria-describedby="name">
+    <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
   </div>
   <div class="form-group">
     <label for="email1">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="phone">Phone no.</label>
-    <input type="phone" class="form-control" id="phone">
+    <input type="phone" class="form-control" name="phone" id="phone">
   </div>
  <div class="form-group">
     <label for="content">How may we help you:</label>
