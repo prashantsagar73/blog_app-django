@@ -6,6 +6,14 @@
 {% block body %}
 <div class="container my-3">
 <h3>Search results:</h3>
+{% if allPost|length < 2  %}
+<p>NO search result found </p>
+Your search - <b> {{query }} </b>- did not match any documents. <br>
+Suggestions:
+<ul>
+<li> Try different key words. </li>
+</ul>
+{% endif %}
 {% for post in allPosts %}
     <div class="row mb-2 my-2">
         <div class="col-md-11">

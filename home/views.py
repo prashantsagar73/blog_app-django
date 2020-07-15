@@ -32,8 +32,13 @@ def about(request):
 def search (request):
     query= request.GET['query']
     # query come form search id(basic.html)
-    allPosts= Post.objects.filter(title__icontains=query)
-    params= {'allPosts': allPosts}
+    if len(query)>50:
+        allPsts =[]
+    else:        
+         allPosts= Post.objects.filter(title__icontains=query)
+    if allPosts.count() == 0:
+         messages.error(request,'No search found,Please search  with correct querry')
+    params= {'allPosts': allPosts,'query': query}
     return render(request,'home/search.html',params)
 
     # return HttpResponse("this is search")    
