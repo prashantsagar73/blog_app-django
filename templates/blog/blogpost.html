@@ -2,5 +2,12 @@
 {% block title %} Blogpost {% endblock title %}   
 
 {% block body %}
-<p> hello from blogpost </p>
+<div class="container my-3">
+<div class="blog-post">
+        <h2 class="blog-post-title">{{post.title}}</h2>
+        <p class="blog-post-meta">{{post.timeStamp}} by <a href="/about">{{post.author}}</a></p>
+
+        <p>{{post.content}}</p>
+      </div>
+</div>      
 {% endblock body %}

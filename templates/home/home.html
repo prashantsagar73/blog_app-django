@@ -1,8 +1,63 @@
-{% extends 'basic.html' %}
-{% block title %} home {% endblock title %} 
+{% extends 'basic.html' %} {% block title %} home {% endblock title %} {% block homeactive %} active {% endblock homeactive %} {% block body %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="mb-5 mt-11">
+                <h1 class="display-4 mb-3">
+                    Turn your ideas into a
+
+                    <span class="text-primary text-highlight-warning">
+                    <span class="js-text-animation">startup.</span><span class="typed-cursor typed-cursor--blink">|</span>
+                    </span>
+                </h1>
+                <p class="lead">Front's feature-rich designed demo pages help you create the best possible product.</p>
+            </div>
+
+            <a class="btn btn-primary btn-wide transition-3d-hover" href="/blog">Go to blog</a>
+            <a class="btn btn-link btn-wide" href="/about">Learn More <i class="fas fa-angle-right fa-sm ml-1"></i></a>
+        </div>
+
+    </div>
+
+</div>
+<div class="container my-3">
+<h3>Popular Blog-Post:</h3>
+    <div class="row mb-2 my-2">
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">World</strong>
+                    <h3 class="mb-0">Featured post</h3>
+                    <div class="mb-1 text-muted">Nov 12</div>
+                    <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="stretched-link">Continue reading</a>
+                </div>
+                {% comment %} <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div> {% endcomment %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="mb-0">Post title</h3>
+                    <div class="mb-1 text-muted">Nov 11</div>
+                    <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="stretched-link">Continue reading</a>
+                </div>
+                {% comment %} <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
 
 
-{% block homeactive %} active {% endblock homeactive %}
 
-   
-{% block body %}{% endblock body %}
+
+
+
+
+{% endblock body %}
