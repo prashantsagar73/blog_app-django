@@ -28,4 +28,7 @@ def about(request):
 
     return render(request,'home/about.html')
 
+def search (request):
+    return HttpResponse("this is search")    
+
  
