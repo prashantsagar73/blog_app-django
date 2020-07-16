@@ -44,6 +44,13 @@ def search (request):
     params= {'allPosts': allPosts, 'query': query }
     return render(request,'home/search.html',params)
 
-    # return HttpResponse("this is search")    
+    # return HttpResponse("this is search")   
+
+def handelsignup (request):
+    if request.method== 'POST':
+
+    else:
+        return HttpResponse ('404 - Not Found')
+
 
  
