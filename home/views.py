@@ -4,6 +4,7 @@ from django.contrib import messages
 from blog.models import Post
 from django.db import IntegrityError
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def home(request):
@@ -79,6 +80,32 @@ def handelsignup(request):
         return redirect('home')
     else: 
         return HttpResponse ('404 - Not Found')
+
+def handellogin(request):
+    if request.method == 'POST':
+        loginusername = request.POST['loginusername']
+        loginpass = request.POST['loginpass']
+
+        # import authenticate
+        user = authenticate(username=loginusername, password=loginpass)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully Logged In")
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid Credentials please try again.")
+            return redirect('home')
+
+    return HttpResponse ('404 - Not Found')
+
+def handellogout(request):
+    logout(request)
+    messages.success(request, "Successfully Logged Out")
+    return redirect('home')
+
+    # return HttpResponse("logout")
+            
 
 
  
