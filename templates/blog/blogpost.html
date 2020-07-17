@@ -9,14 +9,24 @@
 </div>
 <div class="container">
     <h2>Comments</h2>
+    <form action="/blog/postComment" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Post Comment</label>
+    <textarea  type="text" name="comment" class="form-control"  rows="3" placeholder="Enter your comment here"></textarea>
+  </div>     
+        <input type="hidden" name="postSno" value="{{post.sno}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      
+    </form>
+    {% for comment in comments %}
     <div class="row">
-        <div class="col-md2">image here</div>
-        <div class="col-md-10">comment here</div>
+        <div class="col-md-1 "> <img class="rounded mx-auto d-block w-100 p-1" src="/static/img/user.png" alt="user"> </div>
+        <div class="col-md-11 "> <b> {{comment.user.username}} </b> {{comment.timestamp}}
+        <div> {{comment.comment}} </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md2">image here</div>
-        <div class="col-md-10">comment here</div>
-    </div>
+    {% endfor %}
 
 </div>
 {% endblock body %}
