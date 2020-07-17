@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
+# html  pages
 def home(request):
     return render(request,'home/home.html')
     # return HttpResponse('this is home')
@@ -49,6 +50,7 @@ def search (request):
 
     # return HttpResponse("this is search")   
 
+# Aunthentication APIs
 def handelsignup(request):
     if request.method == 'POST':
         # get the post parameters

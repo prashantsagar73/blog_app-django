@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+
+# rename admin heading
+admin.site.site_header = "Coder Admin"
+admin.site.site_title = "Coder Admin Panel"
+admin.site.index_title = "Welcome to Coder Admin Panel"
  
 urlpatterns = [
     path('admin/', admin.site.urls),
