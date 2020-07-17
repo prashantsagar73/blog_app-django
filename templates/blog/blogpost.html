@@ -1,4 +1,5 @@
 {% extends 'basic.html' %} {% block title %} Blogpost {% endblock title %} {% block body %}
+{% load humanize %}
 <div class="container my-3">
     <div class="blog-post">
         <h2 class="blog-post-title">{{post.title}}</h2>
@@ -8,22 +9,40 @@
     </div>
 </div>
 <div class="container">
-    <h2>Comments</h2>
-    <form action="/blog/postComment" method="post">
+    <h2>Comments({{comments.count}}) </h2>
+    <div class= "my-2">
+    {% if user.is_authenticated %}
+     <form action="/blog/postComment" method="post">
     {% csrf_token %}
     <div class="form-group">
     <label for="exampleFormControlTextarea1">Post Comment</label>
     <textarea  type="text" name="comment" class="form-control"  rows="3" placeholder="Enter your comment here"></textarea>
   </div>     
-        <input type="hidden" name="postSno" value="{{post.sno}}">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="hidden" name="postSno" value="{{post.sno}}">
+    <button type="submit" class="btn btn-primary">Submit</button>
       
     </form>
+    {% else %}
+    <p>Please login to post a comment.</p>
+    {% endif %}
+   
+    </div>
     {% for comment in comments %}
     <div class="row">
         <div class="col-md-1 "> <img class="rounded mx-auto d-block w-100 p-1" src="/static/img/user.png" alt="user"> </div>
-        <div class="col-md-11 "> <b> {{comment.user.username}} </b> {{comment.timestamp}}
+        <div class="col-md-11 "> <b> {{comment.user.username}} </b> <span class="badge badge-secondary">{{comment.timestamp | naturaltime }} </span>
         <div> {{comment.comment}} </div>
+        <div class="reply mx-0">
+  <button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#replyBox{{comment.sno}}" aria-expanded="false" aria-controls="replyBox{{comment.sno}}">
+    Reply
+  </button>
+
+<div class="collapse" id="replyBox{{comment.sno}}">
+  <div class="card card-body my-2">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+        </div>
         </div>
     </div>
     {% endfor %}
