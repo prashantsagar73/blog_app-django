@@ -1,13 +1,22 @@
-{% extends 'basic.html' %}
-{% block title %} Blogpost {% endblock title %}   
-
-{% block body %}
+{% extends 'basic.html' %} {% block title %} Blogpost {% endblock title %} {% block body %}
 <div class="container my-3">
-<div class="blog-post">
+    <div class="blog-post">
         <h2 class="blog-post-title">{{post.title}}</h2>
         <p class="blog-post-meta">{{post.timeStamp}} by <a href="/about">{{post.author}}</a></p>
 
         <p>{{post.content}}</p>
-      </div>
-</div>      
+    </div>
+</div>
+<div class="container">
+    <h2>Comments</h2>
+    <div class="row">
+        <div class="col-md2">image here</div>
+        <div class="col-md-10">comment here</div>
+    </div>
+    <div class="row">
+        <div class="col-md2">image here</div>
+        <div class="col-md-10">comment here</div>
+    </div>
+
+</div>
 {% endblock body %}
